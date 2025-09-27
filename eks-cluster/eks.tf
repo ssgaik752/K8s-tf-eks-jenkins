@@ -3,6 +3,18 @@ module "eks" {
   version                        = "~> 21.0"
   cluster_name                   = "eks-cluster"
   cluster_version                = "1.33"
+  addons = {
+    coredns                = {}
+    eks-pod-identity-agent = {
+      before_compute = true
+    }
+    kube-proxy             = {}
+    vpc-cni                = {
+      before_compute = true
+    }
+  }
+  endpoint_public_access = true
+  enable_cluster_creator_admin_permissions = true
   cluster_endpoint_public_access = true
   vpc_id                         = module.my-vpc.vpc_id
   subnet_ids                     = module.my-vpc.private_subnets
