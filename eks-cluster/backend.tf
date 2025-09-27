@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "jenkins-terraform-kubernetes-app-2025-v3"
+    bucket = "primuslearning-app-9898"
     region = "ap-south-1"
     key    = "eks/terraform.tfstate"
   }
