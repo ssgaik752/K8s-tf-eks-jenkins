@@ -1,8 +1,8 @@
 module "eks" {
   source                         = "terraform-aws-modules/eks/aws"
   version                        = "~> 21.0"
-  cluster_name                   = "eks-cluster"
-  cluster_version                = "1.33"
+  name                   = "eks-cluster"
+  kubernetes_version                = "1.33"
   addons = {
     coredns                = {}
     eks-pod-identity-agent = {
