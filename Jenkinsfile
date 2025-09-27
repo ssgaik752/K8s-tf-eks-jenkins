@@ -12,7 +12,7 @@ pipeline {
                 script {
                     dir('eks-cluster') {
                         sh "terraform init -reconfigure"
-                        sh "terraform destroy -auto-approve"
+                        sh "terraform apply -auto-approve"
                     }
                 }
             }
@@ -26,6 +26,13 @@ pipeline {
                         sh "kubectl apply -f nginx-deployment.yaml -n default"
                         sh "kubectl apply -f nginx-service.yaml -n default"
                     }
+                }
+            }
+        }
+        stage("Destroy") {
+            steps {
+                script {
+                    sh "terraform destroy -auto-approve"
                 }
             }
         }
