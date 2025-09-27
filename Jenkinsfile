@@ -29,6 +29,14 @@ pipeline {
                 }
             }
         }
+        stage("Destroy An EKS") {
+            steps {
+                script {
+                        sh "terraform destroy -auto-approve"
+                    }
+                }
+            }
+        }
     }
 }
    
