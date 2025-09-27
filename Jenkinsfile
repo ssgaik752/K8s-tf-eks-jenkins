@@ -12,7 +12,6 @@ pipeline {
                 script {
                     dir('eks-cluster') {
                         sh "terraform init -reconfigure"
-                        sh "terraform refresh" 
                         sh "terraform destroy -target=aws_eks_cluster.eks-cluster"
 
                     }
