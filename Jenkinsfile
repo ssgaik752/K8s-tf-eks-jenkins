@@ -7,7 +7,7 @@ pipeline {
         AWS_DEFAULT_REGION = "ap-south-1"
     }
     stages {
-        stage("Create an EKS Cluster") {
+        stage("Desstroy") {
             steps {
                 script {
                     dir('eks-cluster') {
